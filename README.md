@@ -1,56 +1,142 @@
-# J0-23-collision-primes
+# J₀(23) · Collision Primes
 
-When the two Hecke voices of \(J_0(23)\) coincide: exact congruences (\(a_p \bmod 22\) is determined by \(p\)), an icosahedral mod-3 law, and a pre-registered Lang–Trotter density test with held-out confirmation. 3,562,113 primes up to \(6\cdot10^7\).
+**Two conjugate eigenforms. One shared Hecke eigenvalue. A rare agreement with surprisingly rigid arithmetic.**
 
-Spun out of the [Bolyai Research Atlas](https://github.com/Dojo-1/Bolyai-Research-Atlas), round R14 → R14b. Full mathematical dossier with proofs and claim ledger: [`docs/R14b_dossier.md`](docs/R14b_dossier.md).
+At most primes, the two weight-2 newforms of level 23 give different eigenvalues. At a **collision prime**, they agree. This repository asks two questions: **what must be true at a collision, and how often should one occur?**
 
-## Object
+The first has exact arithmetic answers. The second has a useful research story: a pre-registered model failed; a revised model was frozen and then tested on unseen primes.
 
-\(f, f^\sigma \in S_2(\Gamma_0(23))\) have Hecke field \(\mathbb Q(\sqrt5)\). Write \(a_p(f)=u_p+v_p\phi\) with \(\phi^2=\phi+1\). A **collision prime** is \(p\ne 2,23\) with \(a_p(f)=a_p(f^\sigma)\), i.e. \(v_p=0\).
+**R14b snapshot · 23 November 2026**
 
-Exact engine:
-\[
-v_p=[q^p]\,\eta(z)^2\eta(23z)^2,\qquad u_p=[q^p]\,\theta_{2,1,3}\,\eta(z)\eta(23z).
-\]
-It is checked for exact equality against PARI `mfcoefs` (\(n\le10^4\)) and against independent PARI point counts (468 primes, 0 mismatches).
+| Scan | Collision primes | Model check |
+|---|---:|---|
+| 3,562,113 primes, $3 \le p \le 6\times10^7$, $p\ne23$ | **2,386** | M2 held-out: **909 observed / 914.9 predicted** |
 
-## Results
+[Mathematical dossier](docs/R14b_dossier.md) · [Claim and evidence ledger](results/R14b_Collision_Prime_Audit.json) · [M1 pre-registration](results/R14b_PREREG_M1.md) · [M2 pre-registration](results/R14b_PREREG_M2.md)
 
-| Claim | Status |
-|---|---|
-| **Theorem A.** At a collision, \(a_p\equiv p+1 \pmod{11}\), and \(a_p\) is odd iff \(p=2x^2+xy+3y^2\). Hence \(a_p \bmod 22\) is fixed by \(p\), and \(a_p=0\Rightarrow p\equiv10 \pmod{11}\). | Proved, given Mazur's Eisenstein ideal, \(\operatorname{End}J_0(23)=\mathbb Z[\phi]\) and Eichler–Shimura. 0 exceptions in 2,386 collisions. |
-| **L1.** \(v_p\) is even for all \(p\ne2,23\). | Proved (two independent proofs). |
-| **R1.** If \(p=x^2+xy+6y^2\), then \(T_p\equiv 1+p \pmod{4\mathcal O}\). | Proved. 593,491 cases. |
-| **R2.** If \(p=2x^2+xy+3y^2\), then \(v_p\equiv p-1 \pmod 4\). | **Conjecture.** 1,187,172 cases, 0 exceptions. |
-| The mod-3 trace law equals that of \(\langle i\rangle\cdot 2.A_5\subset GL_2(\mathbb F_9)\) (icosahedral). | Measured, 14/14 frequencies. The image type is in the literature. |
-| Density model **M1** (pre-registered, generic factor at 3). | **Refuted**, z = +8.4. |
-| Density model **M2** (icosahedral \(F_3\), empirical \(F_2\)), frozen before held-out data. | Held-out window \((2\cdot10^7,6\cdot10^7]\): 909 observed vs 914.9 predicted (z = −0.19). |
-| Van Hirtum's level-23 gap (fitted 5.490 vs predicted 4.982). | Inferred to be the second-order term of \(\sum p^{-1/2}\); M2 implies a fitted value of 5.60. |
+> **The rule here:** a numerical pattern can suggest a theorem; it cannot impersonate one.
 
-**Not claimed:** infinitude of collisions, a Lean proof, or novelty. Theorem A is a short corollary of known inputs and may be folklore.
+## The collision
 
-## Layout
+Let $f,f^\sigma\in S_2(\Gamma_0(23))$ be the conjugate eigenforms with Hecke field $K=\mathbb Q(\sqrt5)$. Set $\phi^2=\phi+1$ and write
 
-```
-experiments/collision_primes_r14b.py   self-contained module: coefficient engine, law audit, exact local factors, 2.A5 construction, density constants
-tests/test_collision_primes_r14b.py    10 regression tests (test_10 needs cypari2; skipped otherwise)
-results/R14b_PREREG_M1.md              frozen before any scan beyond p<=101   sha256 f3d823ab48929614090d8d97f3d8a8aca03b1614b503619eb9196192dc43ed49
-results/R14b_PREREG_M2.md              frozen before computing (2e7,6e7]       sha256 c71a78e4594e252d00630b3195d28a3e9ffd54ab90363b525ea6ca1517862f12
-results/*.json                         audit ledger, M1 + local-frequency tests, held-out scoring, mod-4 laws
-data/ap_lean_60000000.npz              (p, u_p, v_p) for all primes 3<=p<=6e7, p!=23
-scripts/                               provenance: the exact working scripts as run (paths are those of the original working directory)
-docs/R14b_dossier.md                   proofs, claim ledger, next discriminators
-```
+$$
+a_p(f)=u_p+v_p\phi,\qquad u_p,v_p\in\mathbb Z.
+$$
 
-## Reproduce
+For a prime $p\ne2,23$:
+
+$$
+\boxed{p\text{ is a collision prime}\iff a_p(f)=a_p(f^\sigma)\iff v_p=0.}
+$$
+
+The first eight are **13, 19, 29, 43, 109, 223, 229, 271**.
+
+The coefficient identities used in the scan are
+
+$$
+v_p=[q^p]\,\eta(z)^2\eta(23z)^2,
+\qquad
+u_p=[q^p]\,\theta_{2,1,3}(z)\eta(z)\eta(23z),
+$$
+
+where $\theta_{2,1,3}(z)=\sum_{x,y\in\mathbb Z}q^{2x^2+xy+3y^2}$ and $q=e^{2\pi iz}$.
+
+**Precision boundary:** these are exact identities, while the large coefficient scan uses floating-point FFT convolution followed by integer rounding. The repository records checks against PARI `mfcoefs` through $n=10^4$, independent PARI point counts at 468 primes (zero mismatches), and FFT rounding residuals below $5\times10^{-8}$ in the recorded run. Those checks support the *reported finite computation*; they are not a general proof of floating-point correctness at arbitrary bounds.
+
+## What the primes say
+
+| Result | Statement | Evidence status |
+|---|---|---|
+| **Theorem A: rigidity mod 22** | At a collision, $a_p\equiv p+1\pmod{11}$, and $a_p$ is odd iff $p=2x^2+xy+3y^2$ for integers $x,y$. Thus $a_p\bmod22$ is fixed by $p$. | Proof in the dossier **conditional on cited standard inputs** (Mazur's Eisenstein ideal, the endomorphism ring, and Eichler–Shimura); 0 recorded exceptions among 2,386 collisions |
+| **L1: parity** | $v_p$ is even for every $p\ne2,23$. | Two proofs recorded; full-range scan agrees |
+| **R1: principal-form mod 4** | If $p=x^2+xy+6y^2$, then $T_p\equiv1+p\pmod{4\mathcal O}$, $\mathcal O=\mathbb Z[\phi]$. | Proof recorded using Eichler–Shimura; 593,491 cases checked |
+| **R2: nonprincipal-form mod 4** | If $p=2x^2+xy+3y^2$, then $v_p\equiv p-1\pmod4$. | **Conjecture**, not proved; 1,187,172 cases checked, 0 exceptions |
+| **Mod-3 trace law** | Observed trace frequencies match those of a binary-icosahedral model $\langle i\rangle\cdot2.A_5\subset GL_2(\mathbb F_9)$ of order 240. | Measured agreement; the image type is literature-supported, not established anew here |
+
+A particularly sharp consequence of Theorem A is
+
+$$
+a_p(f)=0\ \Longrightarrow\ p\equiv10\pmod{11}.
+$$
+
+The recorded scan finds **43, 109, and 1033** as the only such primes within its range.
+
+**Proof is not novelty.** Theorem A uses established inputs and may be folklore. R2 remains open despite its large numerical test. The [dossier](docs/R14b_dossier.md) separates proofs, imported facts, finite checks, model-derived factors, and unresolved claims.
+
+## A model that failed — and a held-out test that mattered
+
+The Lang–Trotter-style *heuristic* here is that collision probability scales like $p^{-1/2}$, with local corrections:
+
+$$
+\Pr(v_p=0)\ \approx\ \frac{8\sqrt5}{3\pi^2}\,\widehat F\,p^{-1/2}.
+$$
+
+- **M1** used a generic local factor at 3 and a full-preimage assumption at 2. It was pre-registered before the scan beyond $p\le101$. By $2\times10^7$ it predicted **1,187.9** collisions; the scan found **1,477** ($z\approx+8.4$). **M1 was refuted.**
+- **M2** replaced the factor at 3 with the icosahedral model and used an **empirical** factor at 2 from local divisibility frequencies, *not collision counts*. This revision was post hoc relative to M1, but frozen **before** testing the interval $(2\times10^7,6\times10^7]$.
+
+| Held-out interval | Observed | M2 predicted | Standardized residual |
+|---|---:|---:|---:|
+| $(2\times10^7,4\times10^7]$ | 504 | 524.6 | −0.90 |
+| $(4\times10^7,6\times10^7]$ | 405 | 390.3 | +0.75 |
+| **Combined** | **909** | **914.9** | **−0.19** |
+
+This is **one successful held-out check**, not proof of the density heuristic or of an asymptotic law. M2 also over-predicts noticeably at smaller bounds, so finite-$p$ corrections remain an active problem.
+
+A related comparison with Van Hirtum's level-23 constant suggests that the apparent fitted-versus-predicted gap may partly reflect approximating $\sum_{p\le x}p^{-1/2}$ by $2\sqrt x/\log x$. That explanation is **inferred**, and the original fitting procedure has not been fully reconstructed.
+
+## Reproduce and inspect
+
+From the repository root, with Python 3 and NumPy:
 
 ```bash
-pip install -r requirements.txt
-python3 -m unittest discover -s tests -v                 # about 2 s
-python3 -m experiments.collision_primes_r14b 2000000     # law audit + M1/M2 predictions at 2e6
-sha256sum results/R14b_PREREG_M*.md                      # must match the hashes above
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install numpy
+
+# Regression suite. The optional PARI test skips without cypari2.
+python -m unittest discover -s tests -p 'test_collision_primes_r14b.py' -v
+
+# Recompute a bounded scan, law audit and M1/M2 predictions.
+python -m experiments.collision_primes_r14b 2000000
+
+# Inspect the frozen model declarations.
+sha256sum results/R14b_PREREG_M*.md
 ```
 
-A note on `scripts/`: these are the scripts exactly as they were run, kept unedited for provenance. They expect intermediate files (`ap_20000000.npz`, `primes_6e7.npy`, `G3.pkl`) in the working directory. Run `data.py 2e7` first to regenerate them; the 6e7 run needs about 5 GB of RAM.
+The repository's `requirements.txt` also lists SciPy, SymPy, and `cypari2`. The latter may require a working PARI/GP installation; it is **not required** for the main NumPy scan, and its cross-check test skips when unavailable. The historical 60-million-prime run and its audit are already recorded in `data/` and `results/`; the short command above **does not reproduce** that full scan.
 
-No CI is configured in this repository by design.
+The stored pre-registration file hashes reported in the audit are:
+
+```text
+M1  f3d823ab48929614090d8d97f3d8a8aca03b1614b503619eb9196192dc43ed49
+M2  c71a78e4594e252d00630b3195d28a3e9ffd54ab90363b525ea6ca1517862f12
+```
+
+## Repository map
+
+| Path | Role |
+|---|---|
+| [`docs/R14b_dossier.md`](docs/R14b_dossier.md) | Mathematical argument, assumptions, claims, references, open questions |
+| [`experiments/collision_primes_r14b.py`](experiments/collision_primes_r14b.py) | Coefficients, arithmetic audits, local image models, density constants |
+| [`tests/test_collision_primes_r14b.py`](tests/test_collision_primes_r14b.py) | 10 regression tests; PARI cross-check optional |
+| [`results/`](results/) | Pre-registrations, local-factor tests, held-out scores and claim ledger |
+| [`data/ap_lean_60000000.npz`](data/ap_lean_60000000.npz) | Saved $(p,u_p,v_p)$ array for the large scan |
+| [`scripts/`](scripts/) | Historical scripts retained for provenance, not a polished standalone pipeline |
+
+The historical scripts assume intermediate files in their working directory; see the [dossier](docs/R14b_dossier.md) and script headers before re-running them. **No CI is configured** in this repository.
+
+## Open edges
+
+1. **Prove or disprove R2.** Identify the relevant 2-adic Galois image rather than extrapolating from finite congruence checks.
+2. **Explain the small-prime bias.** Test a finite-$p$ lattice correction against the existing dataset without recycling the same interval as independent validation.
+3. **Reconstruct the literature comparison.** Repeat Van Hirtum's fitting procedure on matched ranges and normalizations.
+4. **Formalize the finite algebraic bridges.** Lean candidates include the mod-11 ideal intersection and the mod-2 trace lemma; **no Lean proof is claimed**.
+
+**Scope:** this repository does *not* prove infinitely many collision primes, establish a new asymptotic theorem, claim novelty, or present a verified Lean formalization.
+
+---
+
+From the [Bolyai Research Atlas](https://github.com/Dojo-1/Bolyai-Research-Atlas), **R14 → R14b**.
+
+*Two voices coincide. The burden of proof does not disappear.*
