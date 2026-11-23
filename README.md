@@ -1,8 +1,8 @@
-# J₀(23) · Collision Primes
+# J₀(23): Hecke Eigenvalue Collisions and Arithmetic Distribution
 
-**Two conjugate eigenforms. One shared Hecke eigenvalue. A rare agreement with surprisingly rigid arithmetic.**
+**Congruence constraints · mod-3 trace distributions · a Lang–Trotter-type density heuristic.**
 
-At most primes, the two weight-2 newforms of level 23 give different eigenvalues. At a **collision prime**, they agree. This repository asks two questions: **what must be true at a collision, and how often should one occur?**
+For the Galois-conjugate normalized weight-2 newforms $f,f^\sigma$ on $\Gamma_0(23)$, a **collision prime** is a prime $p$ satisfying $a_p(f)=a_p(f^\sigma)$. We study the congruence constraints at these primes and the observed frequency of collisions.
 
 The first has exact arithmetic answers. The second has a useful research story: a pre-registered model failed; a revised model was frozen and then tested on unseen primes.
 
@@ -14,9 +14,9 @@ The first has exact arithmetic answers. The second has a useful research story: 
 
 [Mathematical dossier](docs/R14b_dossier.md) · [Claim and evidence ledger](results/R14b_Collision_Prime_Audit.json) · [M1 pre-registration](results/R14b_PREREG_M1.md) · [M2 pre-registration](results/R14b_PREREG_M2.md)
 
-> **The rule here:** a numerical pattern can suggest a theorem; it cannot impersonate one.
+> **Evidence rule:** exact identities, conditional deductions, finite checks, and heuristic models carry distinct proof obligations.
 
-## The collision
+## Definition and coefficient identities
 
 Let $f,f^\sigma\in S_2(\Gamma_0(23))$ be the conjugate eigenforms with Hecke field $K=\mathbb Q(\sqrt5)$. Set $\phi^2=\phi+1$ and write
 
@@ -44,7 +44,7 @@ where $\theta_{2,1,3}(z)=\sum_{x,y\in\mathbb Z}q^{2x^2+xy+3y^2}$ and $q=e^{2\pi 
 
 **Precision boundary:** these are exact identities, while the large coefficient scan uses floating-point FFT convolution followed by integer rounding. The repository records checks against PARI `mfcoefs` through $n=10^4$, independent PARI point counts at 468 primes (zero mismatches), and FFT rounding residuals below $5\times10^{-8}$ in the recorded run. Those checks support the *reported finite computation*; they are not a general proof of floating-point correctness at arbitrary bounds.
 
-## What the primes say
+## Congruence results and open claims
 
 | Result | Statement | Evidence status |
 |---|---|---|
@@ -64,7 +64,7 @@ The recorded scan finds **43, 109, and 1033** as the only such primes within its
 
 **Proof is not novelty.** Theorem A uses established inputs and may be folklore. R2 remains open despite its large numerical test. The [dossier](docs/R14b_dossier.md) separates proofs, imported facts, finite checks, model-derived factors, and unresolved claims.
 
-## A model that failed — and a held-out test that mattered
+## Density models: rejection and held-out evaluation
 
 The Lang–Trotter-style *heuristic* here is that collision probability scales like $p^{-1/2}$, with local corrections:
 
@@ -139,4 +139,4 @@ The historical scripts assume intermediate files in their working directory; see
 
 From the [Bolyai Research Atlas](https://github.com/Dojo-1/Bolyai-Research-Atlas), **R14 → R14b**.
 
-*Two voices coincide. The burden of proof does not disappear.*
+*Exact statements. Reproducible tests. Open questions remain open.*
