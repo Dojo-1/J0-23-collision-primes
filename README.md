@@ -70,7 +70,7 @@ where $\theta_{2,1,3}(z)=\sum_{x,y\in\mathbb Z}q^{2x^2+xy+3y^2}$ and $q=e^{2\pi 
 | **L1: parity** | $v_p$ is even for every $p\ne2,23$. | Two proofs recorded; full-range scan agrees |
 | **R1: principal-form mod 4** | If $p=x^2+xy+6y^2$, then $T_p\equiv1+p\pmod{4\mathcal O}$, $\mathcal O=\mathbb Z[\phi]$. | Proof recorded using Eichler–Shimura; 593,491 cases checked |
 | **R2: nonprincipal-form mod 4** | If $p=2x^2+xy+3y^2$, then $v_p\equiv p-1\pmod4$. | **Conjecture**, not proved; 1,187,172 cases checked, 0 exceptions |
-| **Mod-3 trace frequencies** | The recorded frequencies agree with an explicitly constructed binary-icosahedral group model $\langle i\rangle\cdot2.A_5\subset GL_2(\mathbb F_9)$ of order 240. | **Model agreement only:** an identification of the actual residual Galois image for this level-23 form has not been established here |
+| **Mod-3 trace frequencies** | The recorded frequencies agree with an explicitly constructed binary-icosahedral group model $\langle i\rangle\cdot2.A_5\subset GL_2(\mathbb F_9)$ of order 240. | Measured frequency match. The projective image $A_5$ is **source-reported** (Billerey–Dieulefait, arXiv:1210.5428 §5.3, attributing to Ribet and Kiming–Verrill), consistent with an independent check (Frobenius cycle types of $X^5+3X^3+6X^2+9$ agree with mod-3 traces at all 17,981 primes $\le2\cdot10^5$, 0 mismatches); the full 3-adic image is a model hypothesis |
 
 A particularly sharp consequence of Theorem A is
 
@@ -167,7 +167,7 @@ The historical scripts assume intermediate files in their working directory; see
 1. **Prove or disprove R2.** Identify the relevant 2-adic Galois image rather than extrapolating from finite congruence checks.
 2. **Explain the small-prime bias.** Test a finite-$p$ lattice correction against the existing dataset without recycling the same interval as independent validation.
 3. **Reconstruct the literature comparison.** Repeat Van Hirtum's fitting procedure on matched ranges and normalizations.
-4. **Validate the residual image at 3.** Independently determine the actual mod-3 Galois image instead of inferring it from a frequency match to a constructed group model.
+4. **The 3-adic image.** The mod-3 projective image $A_5$ passed an independent cycle-type check; it remains open whether the 3-adic image is the full preimage of the model group.
 5. **Formalize the finite algebraic bridges.** Lean candidates include the mod-11 ideal intersection and the mod-2 trace lemma; **no Lean proof is claimed**.
 
 **Scope:** this repository does *not* prove infinitely many collision primes, establish a new asymptotic theorem, claim novelty, or present a verified Lean formalization.
