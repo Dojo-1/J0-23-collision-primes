@@ -1,4 +1,4 @@
-# R14b — When the two voices coincide: exact congruences and the density of collision primes of \(J_0(23)\)
+# R14b — Hecke eigenvalue collisions for \(J_0(23)\): congruences and density heuristics
 
 **Date:** 2026-11-23. **Extends:** R14 open item *"investigate collision-prime distributions with an explicitly declared analytic hypothesis and adequate sample size"*.
 **Code:** [`experiments/collision_primes_r14b.py`](../experiments/collision_primes_r14b.py) · **Tests:** [`tests/test_collision_primes_r14b.py`](../tests/test_collision_primes_r14b.py) (10) · **Ledger:** [`R14b_Collision_Prime_Audit.json`](../results/R14b_Collision_Prime_Audit.json) · **Pre-registrations:** [M1](../results/R14b_PREREG_M1.md), [M2](../results/R14b_PREREG_M2.md).
@@ -100,7 +100,7 @@ with \(\hat F=\prod_\ell F_\ell\) and \(F_\ell=\lim_k\ell^k\Pr[\ell^k\mid v_p]\)
 | Van Hirtum gap = second-order term | INFERRED | his fit procedure not re-checked |
 | Novelty | UNKNOWN | brief search found no explicit statement of Theorem A or R2; Theorem A is a short corollary of known inputs and may be folklore |
 
-**Not claimed:** infinitude of collisions (open, as for Lang–Trotter); any Lean build; any new law of "prime music". The two "voices" are the two Hecke embeddings and nothing more.
+**Not claimed:** infinitude of collisions (open, as for Lang–Trotter), any Lean build, or a new asymptotic theorem. Here a *collision* means equality of the Hecke eigenvalues of two Galois-conjugate newforms; it is not a term for any additional physical or musical structure.
 
 ## 5. Next discriminators
 
