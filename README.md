@@ -12,7 +12,7 @@ The first has exact arithmetic answers. The second has a useful research story: 
 |---|---:|---|
 | 3,562,113 primes, $3 \le p \le 6\times10^7$, $p\ne23$ | **2,386** | M2 held-out: **909 observed / 914.9 predicted** |
 
-[Mathematical dossier](docs/R14b_dossier.md) · [Claim and evidence ledger](results/R14b_Collision_Prime_Audit.json) · [M1 pre-registration](results/R14b_PREREG_M1.md) · [M2 pre-registration](results/R14b_PREREG_M2.md)
+[Paper (PDF)](paper/collision_primes_J0_23.pdf) · [LaTeX source](paper/collision_primes_J0_23.tex) · [Mathematical dossier](docs/R14b_dossier.md) · [Claim and evidence ledger](results/R14b_Collision_Prime_Audit.json) · [M1 pre-registration](results/R14b_PREREG_M1.md) · [M2 pre-registration](results/R14b_PREREG_M2.md)
 
 > **Evidence rule:** exact identities, conditional deductions, finite checks, and heuristic models carry distinct proof obligations.
 
@@ -118,6 +118,7 @@ M2  c71a78e4594e252d00630b3195d28a3e9ffd54ab90363b525ea6ca1517862f12
 | Path | Role |
 |---|---|
 | [`docs/R14b_dossier.md`](docs/R14b_dossier.md) | Mathematical argument, assumptions, claims, references, open questions |
+| [`paper/`](paper/) | Paper: single-file amsart LaTeX source (compiles warning-free with `latexmk -pdf`, no external files) and compiled PDF |
 | [`experiments/collision_primes_r14b.py`](experiments/collision_primes_r14b.py) | Coefficients, arithmetic audits, local image models, density constants |
 | [`tests/test_collision_primes_r14b.py`](tests/test_collision_primes_r14b.py) | 10 regression tests; PARI cross-check optional |
 | [`results/`](results/) | Pre-registrations, local-factor tests, held-out scores and claim ledger |
