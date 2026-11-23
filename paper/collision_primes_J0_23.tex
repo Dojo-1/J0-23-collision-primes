@@ -46,7 +46,7 @@
 \begin{abstract}
 Let $f$ be the newform of weight $2$ and level $23$, with coefficient field $\Q(\sqrt5)$. Call a prime $p\neq 2,23$ a \emph{collision prime} if $a_p(f)\in\Z$, that is, if the two Galois-conjugate Hecke eigenvalues coincide. We prove that at a collision prime $a_p(f)\equiv p+1\pmod{11}$, and that $a_p(f)\bmod 2$ is determined by the class of $p$ in the Hilbert class field of $\Q(\sqrt{-23})$. Hence $a_p(f)\bmod 22$ is a function of $p$ alone. We also record a mod-$4$ lemma and state a mod-$4$ conjecture, supported by $1.19\times10^6$ cases without exception.
 
-On the quantitative side, we replace the empirically fitted exceptional local factors in Van Hirtum's heuristic for $\#\{p\le x: a_p(f)\in\Q\}$ by factors computed from explicit models of the Galois image: an Eisenstein factor at $11$ and an icosahedral factor at $3$. The factor at $2$ remains empirical. A model fixed in advance using the generic factor at $3$ was refuted ($z=+8.4$). The corrected model was frozen before computing the range $(2\cdot10^7,6\cdot10^7]$, and there predicted $914.9$ collisions against $909$ observed. The asymptotic constant obtained is $c\approx4.864$. We argue that the $\approx10\%$ gap between Van Hirtum's fitted ($5.490$) and predicted ($4.982$) constants for this form is explained by the second-order term of $\sum_{p\le x}p^{-1/2}$. All data ($3{,}562{,}113$ primes), code and frozen pre-registrations are public.
+On the quantitative side, we replace the empirically fitted exceptional local factors in Van Hirtum's heuristic for $\#\{p\le x: a_p(f)\in\Q\}$ by factors computed from explicit, hypothesised models of the Galois image: an Eisenstein model at $11$ and an icosahedral model at $3$. The factor at $2$ remains empirical. A model fixed in advance using the generic factor at $3$ was refuted ($z=+8.4$). The corrected model was frozen before computing the range $(2\cdot10^7,6\cdot10^7]$, and there predicted $914.9$ collisions against $909$ observed. The asymptotic constant obtained is $c\approx4.864$. The $\approx10\%$ gap between Van Hirtum's fitted ($5.490$) and predicted ($4.982$) constants for this form is numerically consistent with the known finite-range effect of replacing $\sum_{p\le x}p^{-1/2}$ by $2\sqrt x/\log x$. All data ($3{,}562{,}113$ primes), code and frozen pre-registrations are public.
 \end{abstract}
 
 \maketitle
@@ -72,7 +72,7 @@ where $D=5$ and $\widehat F_f=\lim_m F_m$ is a limit of local divisibility densi
 This note does three things for level $23$.
 \begin{enumerate}
 \item Section~\ref{sec:congr}: collision primes satisfy forced congruences modulo $11$ and $2$ (Theorem~\ref{thm:A}), together with a mod-$4$ lemma and a mod-$4$ conjecture.
-\item Section~\ref{sec:local}: the exceptional factors at $3$, $11$ and $5$ are derived from explicit models of the Galois image by exact counting, instead of being fitted.
+\item Section~\ref{sec:local}: the exceptional factors at $3$, $11$ and $5$ are derived by exact counting from explicit models of the Galois image (stated as hypotheses), instead of being fitted.
 \item Section~\ref{sec:test}: the resulting constant is tested against $3{,}562{,}113$ primes, using predictions frozen (by SHA-256 hash) before the data were computed. This includes an honest record of a failed first model.
 \end{enumerate}
 We claim no new theorem of depth. Theorem~\ref{thm:A} is a short consequence of Mazur's work and of the structure of $J_0(23)[2]$; we have not found it stated in the literature. The infinitude of collision primes remains open.
@@ -181,12 +181,12 @@ F_{11}^{(1)}=1.09083,\quad F_{11}^{(2)}=1.09917,\quad F_{11}^{(3)}=1.09924 .
 \]
 The empirical values are $1.0948$ and $1.1083$ (standard errors about $0.01$). A Borel-type model, which is inconsistent with the split kernel, would give $F_{11}^{(2)}=1.0916$. For comparison, the generic split factor at $11$ is $1.0076$.
 
-\subsection{\texorpdfstring{$\ell=3$}{l=3}: icosahedral}
-The literature records that the mod-$3$ representation of $f$ has projective image $A_5$ \cite{BD}. Our data show exactly which coset structure occurs. For $p\equiv1\pmod3$, $T_p\bmod3\in\F_9$ never equals $\pm\phi^2$; for $p\equiv2\pmod3$, it never equals $\pm1$. The remaining frequencies are $0.250$, $0.175$ and $0.100$. These coincide to three decimals with the trace distribution of $G_3=\langle i\rangle\cdot2.A_5\subset\GL_2(\F_9)$, where $2.A_5\cong\SL_2(\F_5)$ is the binary icosahedral group embedded in $\SL_2(\F_9)$, $i=\phi^2$ and $i^2=-1$. In $2.A_5$, the trace is $0$ on $30$ of $120$ elements, $\pm1$ on $21$ each, and each of the four values $(\pm1\pm\sqrt5)/2$ on $12$. Taking the full preimage of $G_3$ gives
+\subsection{\texorpdfstring{$\ell=3$}{l=3}: an icosahedral model}
+Billerey and Dieulefait state, for this form and the prime above $3$, that the projective mod-$3$ image is $A_5$, with kernel field the splitting field of $X^5+3X^3+6X^2+9$; they attribute the example to Ribet and to Kiming--Verrill \cite[\S5.3]{BD}, \cite[Ex.~3.2]{KV}. We have not verified this identification independently, and nothing below depends on it beyond motivating the model. The data show which coset structure is consistent with the traces. For $p\equiv1\pmod3$, $T_p\bmod3\in\F_9$ never equals $\pm\phi^2$; for $p\equiv2\pmod3$, it never equals $\pm1$. The remaining frequencies are $0.250$, $0.175$ and $0.100$. These coincide to three decimals with the trace distribution of $G_3=\langle i\rangle\cdot2.A_5\subset\GL_2(\F_9)$, where $2.A_5\cong\SL_2(\F_5)$ is the binary icosahedral group embedded in $\SL_2(\F_9)$, $i=\phi^2$ and $i^2=-1$. In $2.A_5$, the trace is $0$ on $30$ of $120$ elements, $\pm1$ on $21$ each, and each of the four values $(\pm1\pm\sqrt5)/2$ on $12$. Under the \emph{model assumption} that the $3$-adic image is the full preimage of $G_3$, we get
 \[
 F_3^{(1)}=\tfrac{51}{40},\quad F_3^{(2)}=\tfrac{53}{40},\qquad F_3\approx1.332,
 \]
-compared with the empirical values $1.2750$, $1.3258$, $1.3328$ and $1.3333$ for $k=1,\dots,4$.
+compared with the empirical values $1.2750$, $1.3258$, $1.3328$ and $1.3333$ for $k=1,\dots,4$. A frequency match does not by itself determine the image; the extrapolated limit is heuristic.
 
 \subsection{\texorpdfstring{$\ell=5$ and $\ell=2$}{l=5 and l=2}}
 $5$ ramifies in $K$. With full image, $F_5^{(1)}=31/30$ and $F_5^{(2)}=388/375$, so $F_5\approx1.0347$; the empirical values are $1.0304$ and $1.0259$.
@@ -237,17 +237,17 @@ $(2\cdot10^7,6\cdot10^7]$ & 909 & 914.9 & $-0.19$ & $+7.00$\\
 
 M2 overestimates at small $x$: the ratio is $0.75$ at $10^5$, $0.90$ at $10^6$, and $0.985$ to $0.99$ from $10^7$ on. The $p^{-1/2}$ approximation ignores finite-$p$ effects: the lattice of admissible $(a_p(f),a_p(f^\sigma))$, restricted by Theorem~\ref{thm:A} to classes mod $22$, sampled against the Sato--Tate density near the edges of the Hasse box. We have not modelled this.
 
-\subsection{Van Hirtum's fitted constant}
-For level $23$, Van Hirtum reports a predicted $\hat c=4.982$ (using empirical exceptional factors) and a constant $\tilde c=5.490$ fitted on $x\le10^8$, a ratio of $1.10$ \cite[Table~1]{VH}. Our $c_f=4.864$ is within $2.4\%$ of his prediction. The gap to the fitted value is not a missing factor: the quantity
+\subsection{Comparison with Van Hirtum's fitted constant}
+For level $23$, Van Hirtum reports a predicted $\hat c=4.982$ (using empirical exceptional factors) and a constant $\tilde c=5.490$ fitted on $x\le10^8$, a ratio of $1.10$ \cite[Table~1]{VH}. Our $c_f=4.864$ is within $2.4\%$ of his prediction. The finite-range effect of normalising by $2\sqrt x/\log x$ is already recognised in prior work; we only quantify it for this form. The quantity
 \[
 \Big(\sum_{p\le x}p^{-1/2}\Big)\Big/\Big(2\sqrt x/\log x\Big)
 \]
-equals $1.174$, $1.160$ and $1.146$ at $x=10^7$, $3\cdot10^7$ and $10^8$. A least-squares fit of $c\sqrt x/\log x$ to M2-expected counts at $50$ equally spaced points up to $10^8$ returns $5.60$, within $2\%$ of $5.490$. We did not re-inspect Van Hirtum's fitting window, so this explanation is inferred rather than verified. It suggests that comparisons with \eqref{eq:murty} should use $\sum p^{-1/2}$ rather than its leading asymptotic.
+equals $1.174$, $1.160$ and $1.146$ at $x=10^7$, $3\cdot10^7$ and $10^8$. A least-squares fit of $c\sqrt x/\log x$ to M2-expected counts at $50$ equally spaced points up to $10^8$ returns $5.60$, within $2\%$ of $5.490$. This is numerically consistent with the gap being a normalisation effect, but it does not rule out omitted local corrections, and we did not reconstruct Van Hirtum's fitting window. Comparisons with \eqref{eq:murty} at accessible ranges are cleaner with $\sum p^{-1/2}$ than with its leading asymptotic.
 
 \section{Open problems}
 \begin{enumerate}
 \item Determine the $2$-adic image of $J_0(23)$. Prove Conjecture~\ref{conj:R2}, and check whether the full preimage of that image gives $F_2=2.554$ exactly.
-\item Prove that the $3$-adic image is the full preimage of $\langle i\rangle\cdot2.A_5$, and compute $F_3$ exactly; the data and $k\le2$ suggest $F_3=4/3$.
+\item Independently determine the mod-$3$ and $3$-adic images (rather than inferring them from trace frequencies), check whether the latter is the full preimage of $\langle i\rangle\cdot2.A_5$, and compute $F_3$ exactly; the data and $k\le2$ suggest $F_3=4/3$.
 \item Give a finite-$p$ refinement of the archimedean factor that explains the deficit at $x\le10^6$.
 \item Formalise Theorem~\ref{thm:A} given (I1)--(I3); its arithmetic steps are finite.
 \end{enumerate}
@@ -264,6 +264,8 @@ The computations, the search for congruences and local-factor models, the proofs
 \bibitem{BD} N.~Billerey and L.~V.~Dieulefait, \emph{Explicit large image theorems for modular forms}, J.\ London Math.\ Soc.\ (2) \textbf{89} (2014), 499--523; arXiv:1210.5428.
 
 \bibitem{Hashimoto} K.~Hashimoto, \emph{On Brumer's family of RM-curves of genus two}, Tohoku Math.\ J.\ \textbf{52} (2000), 475--488.
+
+\bibitem{KV} I.~Kiming and H.~Verrill, \emph{On modular mod $\ell$ Galois representations with exceptional images}, J.\ Number Theory \textbf{110} (2005), 236--266.
 
 \bibitem{LT} S.~Lang and H.~Trotter, \emph{Frobenius Distributions in $\GL_2$-Extensions}, Lecture Notes in Math.\ \textbf{504}, Springer, 1976.
 
