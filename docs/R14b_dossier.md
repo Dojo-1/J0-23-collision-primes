@@ -47,14 +47,14 @@ Both cubics are irreducible with discriminant \(-23\). The cubic field of discri
 
 **Verification over all 3,562,113 primes \(\le6\cdot10^7\):** Theorem A (2,386 collisions), L1, L2, R1 (593,491 cases) and R2 (1,187,172 cases) all hold with zero exceptions. For R2 this is evidence only.
 
-## 2. The mod-3 representation is icosahedral [M; image type SOURCE-REPORTED]
+## 2. Mod-3 trace frequencies and an icosahedral model [M; image identification OPEN]
 
 For \(p\equiv1\pmod3\), \(T_p\bmod3\in\mathbb F_9\) never equals \(\pm\phi^2\). For \(p\equiv2\pmod 3\) it never equals \(\pm1\). The observed frequencies are
 - 0.25 for trace 0;
 - 0.175 for each of \(\pm1\) (when \(p\equiv1\)) or \(\pm\phi^2\) (when \(p\equiv2\));
 - 0.10 for each of the other four values.
 
-This reproduces **exactly** the trace law of \(\langle i\rangle\cdot 2.A_5\subset GL_2(\mathbb F_9)\) with \(i=\phi^2\). The group is constructed explicitly in code; its order is 240. It matches the literature statement that this form has projective image \(A_5\) (cited in arXiv:1210.5428, which gives the field as the splitting field of \(X^5+3X^3+6X^2+9\)). The new consequence is quantitative: the local collision factor at 3 is \(F_3^{(1)}=51/40\) and \(F_3^{(2)}=53/40\), against the generic \(1.0969\). Empirically: 1.2750, 1.3258, 1.3328, 1.3333 (\(k=1..4\)).
+The measured frequencies match the trace law computed for the explicitly constructed model group \(\langle i\rangle\cdot 2.A_5\subset GL_2(\mathbb F_9)\) with \(i=\phi^2\), of order 240. **This comparison does not determine the residual Galois image of the level-23 newform.** An earlier citation to arXiv:1210.5428 was misapplied: its cited \(A_5\) example belongs to a different modular form (weight 6, level 81). Under the present *model assumption*, the finite-level local factors are \(F_3^{(1)}=51/40\) and \(F_3^{(2)}=53/40\), compared with the generic model value \(1.0969\). Recorded scaled divisibility frequencies: 1.2750, 1.3258, 1.3328, 1.3333 for \(k=1,2,3,4\), respectively. The extrapolation to a limiting \(F_3\) remains heuristic.
 
 ## 3. Density: a pre-registered failure, then a held-out success
 
@@ -62,7 +62,7 @@ Heuristic (Murty; Van Hirtum, arXiv:1508.07206):
 \[
 \Pr[v_p=0]\approx \tfrac{8\sqrt5}{3\pi^2}\hat F\,p^{-1/2},\qquad \#\{p\le x\}\approx\tfrac{8\sqrt5}{3\pi^2}\hat F\sum_{p\le x}p^{-1/2},
 \]
-with \(\hat F=\prod_\ell F_\ell\) and \(F_\ell=\lim_k\ell^k\Pr[\ell^k\mid v_p]\). Van Hirtum fixed the exceptional \(\ell\) **empirically**; here they come from image models.
+with \(\hat F=\prod_\ell F_\ell\) and \(F_\ell=\lim_k\ell^k\Pr[\ell^k\mid v_p]\). Van Hirtum treated exceptional local factors empirically. Here the factors at several primes are computed from proposed image models, while the M2 factor at 2 remains **empirical**.
 
 | ℓ | model | \(F_\ell\) | status |
 |---|---|---|---|
@@ -83,7 +83,7 @@ with \(\hat F=\prod_\ell F_\ell\) and \(F_\ell=\lim_k\ell^k\Pr[\ell^k\mid v_p]\)
 
 \(\hat F_{M2}=4.026\), \(c=16\sqrt5\hat F/(3\pi^2)=4.864\). M2 **over-predicts at small x** (ratio 0.75 at \(10^5\), 0.90 at \(10^6\), 0.99 at \(10^7\)). The \(p^{-1/2}\) model ignores finite-\(p\) discreteness and edge effects; this is open.
 
-**Van Hirtum's ~10% excess, resolved [INFERRED].** For level 23 Van Hirtum reports a predicted \(\hat c=4.982\) and a fitted \(\tilde c=5.490\) (SOURCE-REPORTED). Our asymptotic \(c=4.864\) lies within 2.4% of his prediction. Because \(\sum_{p\le x}p^{-1/2}\big/(2\sqrt x/\log x)\) is still 1.146 at \(10^8\), a least-squares fit of \(c\sqrt x/\log x\) to M2-expected counts on \(x\le10^8\) returns **5.60**. That matches his fitted 5.49 to within 2%. The excess is the second-order term of \(\sum p^{-1/2}\), not a missing local factor. Caveat: his exact fitting window was not re-inspected.
+**Comparison with Van Hirtum's finite-range normalization [INFERRED, not a new resolution].** For level 23 Van Hirtum reports a predicted \(\hat c=4.982\) and a fitted \(\tilde c=5.490\) (SOURCE-REPORTED). Our asymptotic \(c=4.864\) lies within 2.4% of his prediction. Because \(\sum_{p\le x}p^{-1/2}\big/(2\sqrt x/\log x)\) is still 1.146 at \(10^8\), a least-squares fit of \(c\sqrt x/\log x\) to M2-expected counts on \(x\le10^8\) returns **5.60**. That matches his fitted 5.49 to within 2%. The numerical comparison is consistent with the already-known finite-range correction in replacing \(\sum p^{-1/2}\) by \(2\sqrt x/\log x\); it does not independently rule out omitted local corrections. Caveat: Van Hirtum's exact fitting window was not re-inspected.
 
 ## 4. Claim ledger
 
@@ -93,11 +93,11 @@ with \(\hat F=\prod_\ell F_\ell\) and \(F_\ell=\lim_k\ell^k\Pr[\ell^k\mid v_p]\)
 | Theorem A, L1, L2, C | PROVED | conditional on Mazur, End ring, Eichler–Shimura (imported) |
 | Lemma R1 | PROVED | Eichler–Shimura + free rank 2 |
 | Conjecture R2 | MEASURED, 1.19M cases, 0 exceptions | open proof |
-| mod-3 trace law = \(\langle i\rangle 2.A_5\) | MEASURED (14/14 frequencies); image type SOURCE-REPORTED | |
+| mod-3 trace law matches \(\langle i\rangle 2.A_5\) model | MEASURED (reported frequency match); actual residual image UNVERIFIED | Requires independent image identification |
 | \(F_3, F_5, F_{11}\) values | DERIVED from image models | the model images are HYPOTHESES (full preimages) |
 | \(F_2=2.554\) | MEASURED, empirical | 2-adic image not determined |
 | M1 refuted; M2 held-out fit | MEASURED, pre-registered | M2 is post hoc; one held-out window |
-| Van Hirtum gap = second-order term | INFERRED | his fit procedure not re-checked |
+| Van Hirtum finite-range normalization comparison | INFERRED, not new | known approximation effect; exact fit not re-checked |
 | Novelty | UNKNOWN | brief search found no explicit statement of Theorem A or R2; Theorem A is a short corollary of known inputs and may be folklore |
 
 **Not claimed:** infinitude of collisions (open, as for Lang–Trotter), any Lean build, or a new asymptotic theorem. Here a *collision* means equality of the Hecke eigenvalues of two Galois-conjugate newforms; it is not a term for any additional physical or musical structure.
@@ -106,4 +106,5 @@ with \(\hat F=\prod_\ell F_\ell\) and \(F_\ell=\lim_k\ell^k\Pr[\ell^k\mid v_p]\)
 
 1. Prove or kill R2: determine the 2-adic image of \(J_0(23)\) (Schoof's \(J_0(23)[2]\) extension structure). The test is whether the full preimage of that image reproduces \(F_2=2.554\) exactly.
 2. A finite-\(p\) correction to the archimedean factor: replace \(\int\mu^2\) by the exact lattice sum \(\sqrt5\sum_a\mu_p(a)^2\), restricted to the residue classes forced by Theorem A. Test it on \(p\le10^6\), where M2 is 10% high.
-3. Port Theorem A's two arithmetic steps to Lean: \(I\cap\mathbb Z=11\mathbb Z\) given \(\mathbb T=\mathcal O\), and the "order divides 6 in \(SL_2(\mathbb F_4)\) ⇒ trace in \(\mathbb F_2\)" lemma. Both are finite or algebraic.
+3. Independently establish the mod-3 residual image for the level-23 newform; do not infer the image solely from matching trace frequencies.
+4. Port Theorem A's two arithmetic steps to Lean: \(I\cap\mathbb Z=11\mathbb Z\) given \(\mathbb T=\mathcal O\), and the "order divides 6 in \(SL_2(\mathbb F_4)\) ⇒ trace in \(\mathbb F_2\)" lemma. Both are finite or algebraic.
