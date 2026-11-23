@@ -182,11 +182,17 @@ F_{11}^{(1)}=1.09083,\quad F_{11}^{(2)}=1.09917,\quad F_{11}^{(3)}=1.09924 .
 The empirical values are $1.0948$ and $1.1083$ (standard errors about $0.01$). A Borel-type model, which is inconsistent with the split kernel, would give $F_{11}^{(2)}=1.0916$. For comparison, the generic split factor at $11$ is $1.0076$.
 
 \subsection{\texorpdfstring{$\ell=3$}{l=3}: an icosahedral model}
-Billerey and Dieulefait state, for this form and the prime above $3$, that the projective mod-$3$ image is $A_5$, with kernel field the splitting field of $X^5+3X^3+6X^2+9$; they attribute the example to Ribet and to Kiming--Verrill \cite[\S5.3]{BD}, \cite[Ex.~3.2]{KV}. We have not verified this identification independently, and nothing below depends on it beyond motivating the model. The data show which coset structure is consistent with the traces. For $p\equiv1\pmod3$, $T_p\bmod3\in\F_9$ never equals $\pm\phi^2$; for $p\equiv2\pmod3$, it never equals $\pm1$. The remaining frequencies are $0.250$, $0.175$ and $0.100$. These coincide to three decimals with the trace distribution of $G_3=\langle i\rangle\cdot2.A_5\subset\GL_2(\F_9)$, where $2.A_5\cong\SL_2(\F_5)$ is the binary icosahedral group embedded in $\SL_2(\F_9)$, $i=\phi^2$ and $i^2=-1$. In $2.A_5$, the trace is $0$ on $30$ of $120$ elements, $\pm1$ on $21$ each, and each of the four values $(\pm1\pm\sqrt5)/2$ on $12$. Under the \emph{model assumption} that the $3$-adic image is the full preimage of $G_3$, we get
+Billerey and Dieulefait state, for this form and the prime above $3$, that the projective mod-$3$ image is $A_5$, with kernel field the splitting field of $X^5+3X^3+6X^2+9$; they attribute the example to Ribet and to Kiming--Verrill \cite[\S5.3]{BD}, \cite[Ex.~3.2]{KV}. We have not re-derived this identification theoretically (but see Remark~\ref{rem:quintic}), and nothing below depends on it beyond motivating the model. The data show which coset structure is consistent with the traces. For $p\equiv1\pmod3$, $T_p\bmod3\in\F_9$ never equals $\pm\phi^2$; for $p\equiv2\pmod3$, it never equals $\pm1$. The remaining frequencies are $0.250$, $0.175$ and $0.100$. These coincide to three decimals with the trace distribution of $G_3=\langle i\rangle\cdot2.A_5\subset\GL_2(\F_9)$, where $2.A_5\cong\SL_2(\F_5)$ is the binary icosahedral group embedded in $\SL_2(\F_9)$, $i=\phi^2$ and $i^2=-1$. In $2.A_5$, the trace is $0$ on $30$ of $120$ elements, $\pm1$ on $21$ each, and each of the four values $(\pm1\pm\sqrt5)/2$ on $12$. Under the \emph{model assumption} that the $3$-adic image is the full preimage of $G_3$, we get
 \[
 F_3^{(1)}=\tfrac{51}{40},\quad F_3^{(2)}=\tfrac{53}{40},\qquad F_3\approx1.332,
 \]
 compared with the empirical values $1.2750$, $1.3258$, $1.3328$ and $1.3333$ for $k=1,\dots,4$. A frequency match does not by itself determine the image; the extrapolated limit is heuristic.
+
+\begin{remark}[An independent consistency check]\label{rem:quintic}
+The data can be tested against the field reported in \cite[\S5.3]{BD}. Let $g\in\GL_2(\F_9)$ have trace $t$ and determinant $d\in\F_3^\times$, and put $r=t^2/d$. In characteristic $3$, an element of order $3$ in $\mathrm{PGL}_2(\F_9)$ is unipotent, and an element of order $5$ has eigenvalue ratio a primitive fifth root of unity $\zeta$. So the image of $g$ in $A_5$ has order $2$ iff $t=0$, has order $1$ or $3$ iff $r=4=1$, and has order $5$ iff $r=2+\zeta+\zeta^{-1}\notin\F_3$. On the other side, the cycle type of $\Frob_p$ on the roots of $X^5+3X^3+6X^2+9$ is $1^5$, $(3,1,1)$, $(2,2,1)$ or $(5)$ according to its order in $A_5$.
+
+For all $17{,}981$ primes $p\le2\cdot10^5$ with $p\nmid\operatorname{disc}=3^8\cdot23^2$, we compared the factorisation pattern of the quintic mod $p$ with $r$ computed from $T_p\bmod3$ and $d=p\bmod3$. There are no mismatches. The four classes occur $296$, $6{,}004$, $4{,}495$ and $7{,}186$ times, close to the $A_5$ proportions $1:20:15:24$ out of $60$. This is strong evidence for the reported projective image. It is not a proof, and it says nothing about the $3$-adic image beyond the residual level. The script is \texttt{scripts/mod3\_quintic\_check.py} in the repository.
+\end{remark}
 
 \subsection{\texorpdfstring{$\ell=5$ and $\ell=2$}{l=5 and l=2}}
 $5$ ramifies in $K$. With full image, $F_5^{(1)}=31/30$ and $F_5^{(2)}=388/375$, so $F_5\approx1.0347$; the empirical values are $1.0304$ and $1.0259$.
@@ -207,7 +213,7 @@ N(x)=\#\{p\le x:\ v_p=0\}\ \approx\ \frac{8\sqrt5\,\widehat F}{3\pi^2}\sum_{3\le
 
 \textbf{Model M2} is exploratory, being chosen after M1 failed. It uses the icosahedral $F_3=1.332$ and the empirical $F_2=2.554$. The latter is estimated from local frequencies over all primes, not from collision counts. This gives $\widehat F=4.026$ and $c_f=16\sqrt5\widehat F/(3\pi^2)=4.864$. M2 was frozen (SHA-256 \texttt{c71a78e4\ldots}) before the range $(2\cdot10^7,6\cdot10^7]$ was computed.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
@@ -221,7 +227,7 @@ $(2\cdot10^7,6\cdot10^7]$ & 909 & 914.9 & $-0.19$ & $+7.00$\\
 \caption{Held-out test. $z=(\text{obs}-\text{pred})/\sqrt{\text{pred}}$.}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tikzpicture}
 \begin{axis}[width=0.82\textwidth,height=5.2cm,xmode=log,xlabel={$x$},ylabel={$N(x)/\text{prediction}$},
