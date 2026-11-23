@@ -1,12 +1,16 @@
-# J₀(23): Hecke Eigenvalue Collisions and Arithmetic Distribution
+# J₀(23) — Hecke Eigenvalue Collisions
 
-**Congruence constraints · mod-3 trace distributions · a Lang–Trotter-type density heuristic.**
+![Illustrative mathematical cover: paired ivory and teal curve families meeting at three marked points; not experimental data](assets/j0-23-collision-cover.svg)
+
+<sub>Visual study · geometric illustration, not measured Hecke eigenvalues or a collision-count plot.</sub>
+
+**Congruence constraints · residual trace distributions · Lang–Trotter-type density heuristics**
 
 For the Galois-conjugate normalized weight-2 newforms $f,f^\sigma$ on $\Gamma_0(23)$, a **collision prime** is a prime $p$ satisfying $a_p(f)=a_p(f^\sigma)$. We study the congruence constraints at these primes and the observed frequency of collisions.
 
-The first has exact arithmetic answers. The second has a useful research story: a pre-registered model failed; a revised model was frozen and then tested on unseen primes.
+Two lines of inquiry remain distinct: arithmetic congruences proved from stated inputs, and a density experiment in which a pre-registered model failed before its exploratory successor was evaluated on a held-out prime range.
 
-**R14b snapshot · 23 November 2026**
+**RESEARCH NOTE / R14b** · 23 November 2026
 
 | Scan | Collision primes | Model check |
 |---|---:|---|
@@ -31,6 +35,20 @@ $$
 $$
 
 The first eight are **13, 19, 29, 43, 109, 223, 229, 271**.
+
+### Collision criterion
+
+```mermaid
+flowchart LR
+    F["Normalized newform f"] --> A["a_p(f)"]
+    G["Galois conjugate f^sigma"] --> B["a_p(f^sigma)"]
+    A --> Q{"Equal eigenvalues?"}
+    B --> Q
+    Q -->|Yes| C["Collision prime: v_p = 0"]
+    Q -->|No| N["Non-collision: v_p != 0"]
+```
+
+The criterion is an algebraic equivalence in the Hecke field, not a statement about geometric intersections of curves.
 
 The coefficient identities used in the scan are
 
@@ -83,6 +101,19 @@ $$
 
 This is **one successful held-out check**, not proof of the density heuristic or of an asymptotic law. M2 also over-predicts noticeably at smaller bounds, so finite-$p$ corrections remain an active problem.
 
+### Model evaluation, in order
+
+```mermaid
+flowchart TD
+    A["M1 pre-registered using information through p = 101"]
+      --> B["Scan to 20 million: 1,477 observed vs 1,187.9 predicted"]
+    B --> C["M1 rejected under its declared test"]
+    C --> D["Investigate local factors at 2 and 3"]
+    D --> E["Exploratory M2, frozen before the new interval"]
+    E --> F["Held-out 20 to 60 million: 909 observed vs 914.9 predicted"]
+    F --> G["Compatible on this interval; no asymptotic theorem"]
+```
+
 A comparison with Van Hirtum's level-23 constant is consistent with the finite-range effect of approximating $\sum_{p\le x}p^{-1/2}$ by $2\sqrt x/\log x$. This approximation effect was already recognized in prior work; our specific numerical comparison remains **inferred**, not a new resolution, and the original fitting procedure has not been fully reconstructed.
 
 ## Reproduce and inspect
@@ -113,6 +144,8 @@ M1  f3d823ab48929614090d8d97f3d8a8aca03b1614b503619eb9196192dc43ed49
 M2  c71a78e4594e252d00630b3195d28a3e9ffd54ab90363b525ea6ca1517862f12
 ```
 
+---
+
 ## Repository map
 
 | Path | Role |
@@ -127,6 +160,8 @@ M2  c71a78e4594e252d00630b3195d28a3e9ffd54ab90363b525ea6ca1517862f12
 
 The historical scripts assume intermediate files in their working directory; see the [dossier](docs/R14b_dossier.md) and script headers before re-running them. **No CI is configured** in this repository.
 
+---
+
 ## Open edges
 
 1. **Prove or disprove R2.** Identify the relevant 2-adic Galois image rather than extrapolating from finite congruence checks.
@@ -139,6 +174,6 @@ The historical scripts assume intermediate files in their working directory; see
 
 ---
 
-From the [Bolyai Research Atlas](https://github.com/Dojo-1/Bolyai-Research-Atlas), **R14 → R14b**.
+**Lineage:** [Bolyai Research Atlas](https://github.com/Dojo-1/Bolyai-Research-Atlas) · R14 → R14b.
 
 *Exact statements. Reproducible tests. Open questions remain open.*
