@@ -2,6 +2,7 @@
 
 **Date:** 2026-11-23. **Extends:** R14 open item *"investigate collision-prime distributions with an explicitly declared analytic hypothesis and adequate sample size"*.
 **Code:** [`experiments/collision_primes_r14b.py`](../experiments/collision_primes_r14b.py) · **Tests:** [`tests/test_collision_primes_r14b.py`](../tests/test_collision_primes_r14b.py) (10) · **Ledger:** [`R14b_Collision_Prime_Audit.json`](../results/R14b_Collision_Prime_Audit.json) · **Pre-registrations:** [M1](../results/R14b_PREREG_M1.md), [M2](../results/R14b_PREREG_M2.md).
+> **R14c update (24 November 2026):** This dossier remains a historical R14b record. The [R14c addendum](R14c_addendum.md) provides a Sturm proof of R2 and corrects the conditional 3-adic factor to 213/160. The complete 2-adic and 3-adic images remain open in the repository's claim ledger.
 
 ## 0. Object
 

@@ -20,6 +20,26 @@ Two lines of inquiry remain distinct: arithmetic congruences proved from stated 
 
 > **Evidence rule:** exact identities, conditional deductions, finite checks, and heuristic models carry distinct proof obligations.
 
+
+## R14c — adversarial review and arithmetic addendum (24 November 2026)
+
+The [dated addendum](docs/R14c_addendum.md) supersedes the *current status* of R2 and the local-factor extrapolation at 3, without rewriting the November 23 paper or the frozen M1/M2 records.
+
+- **R2:** a weight-two modular-form congruence and an exact Sturm certificate establish the mod-4 law, subject to the standard modular-form inputs and external review. The conservative level bound is 389344, with all coefficients through 101568 checked. This does not identify the full 2-adic image.
+- **At 3:** the exact limit of the stated binary-icosahedral full-preimage **model** is $F_3=213/160=1.33125$, not $4/3$. Identification of the actual full 3-adic image remains a separate proof obligation.
+- **Forecasts:** M1 failure and M2's 914.9 prediction remain unchanged. Substituting the exact model factor retrospectively gives 914.4; this is not a new held-out test.
+- **Chronology:** both preregistration files and the dataset first appear in public commit [c25c030](https://github.com/Dojo-1/J0-23-collision-primes/commit/c25c030f8528ee15b2f110ba4029ca8c1cad9b9f). Their internal timestamps and reported hashes do not independently establish the prior freeze.
+
+[Proof and evidence boundaries](docs/R14c_addendum.md) · [Exact certificates and raw results](review/R14c/) · [R14b historical manuscript](paper/collision_primes_J0_23.pdf).
+
+Run the staged reproducibility suite with Python 3 (standard library only):
+
+```bash
+python3 review/R14c/replay.py
+```
+
+The historical statements below describe R14b; the addendum records the subsequent corrections. No new asymptotic theorem or human referee certification is claimed.
+
 ## Definition and coefficient identities
 
 Let $f,f^\sigma\in S_2(\Gamma_0(23))$ be the conjugate eigenforms with Hecke field $K=\mathbb Q(\sqrt5)$. Set $\phi^2=\phi+1$ and write
@@ -69,7 +89,7 @@ where $\theta_{2,1,3}(z)=\sum_{x,y\in\mathbb Z}q^{2x^2+xy+3y^2}$ and $q=e^{2\pi 
 | **Theorem A: rigidity mod 22** | At a collision, $a_p\equiv p+1\pmod{11}$, and $a_p$ is odd iff $p=2x^2+xy+3y^2$ for integers $x,y$. Thus $a_p\bmod22$ is fixed by $p$. | Proof in the dossier **conditional on cited standard inputs** (Mazur's Eisenstein ideal, the endomorphism ring, and Eichler–Shimura); 0 recorded exceptions among 2,386 collisions |
 | **L1: parity** | $v_p$ is even for every $p\ne2,23$. | Two proofs recorded; full-range scan agrees |
 | **R1: principal-form mod 4** | If $p=x^2+xy+6y^2$, then $T_p\equiv1+p\pmod{4\mathcal O}$, $\mathcal O=\mathbb Z[\phi]$. | Proof recorded using Eichler–Shimura; 593,491 cases checked |
-| **R2: nonprincipal-form mod 4** | If $p=2x^2+xy+3y^2$, then $v_p\equiv p-1\pmod4$. | **Conjecture**, not proved; 1,187,172 cases checked, 0 exceptions |
+| **R2: nonprincipal-form mod 4** | If $p=2x^2+xy+3y^2$, then $v_p\equiv p-1\pmod4$. | R14b conjecture; see the [R14c Sturm proof](docs/R14c_addendum.md); historical scan: 1,187,172 cases, 0 exceptions |
 | **Mod-3 trace frequencies** | The recorded frequencies agree with an explicitly constructed binary-icosahedral group model $\langle i\rangle\cdot2.A_5\subset GL_2(\mathbb F_9)$ of order 240. | Measured frequency match. The projective image $A_5$ is **source-reported** (Billerey–Dieulefait, arXiv:1210.5428 §5.3, attributing to Ribet and Kiming–Verrill), consistent with an independent check (Frobenius cycle types of $X^5+3X^3+6X^2+9$ agree with mod-3 traces at all 17,981 primes $\le2\cdot10^5$, 0 mismatches); the full 3-adic image is a model hypothesis |
 
 A particularly sharp consequence of Theorem A is
@@ -80,7 +100,7 @@ $$
 
 The recorded scan finds **43, 109, and 1033** as the only such primes within its range.
 
-**Proof is not novelty.** Theorem A uses established inputs and may be folklore. R2 remains open despite its large numerical test. The [dossier](docs/R14b_dossier.md) separates proofs, imported facts, finite checks, model-derived factors, and unresolved claims.
+**Proof is not novelty.** Theorem A uses established inputs and may be folklore. R2 was open in R14b; R14c supplies a finite Sturm argument, while the complete 2-adic image remains open. The [dossier](docs/R14b_dossier.md) separates proofs, imported facts, finite checks, model-derived factors, and unresolved claims.
 
 ## Density models: rejection and held-out evaluation
 
@@ -90,8 +110,8 @@ $$
 \Pr(v_p=0)\ \approx\ \frac{8\sqrt5}{3\pi^2}\,\widehat F\,p^{-1/2}.
 $$
 
-- **M1** used a generic local factor at 3 and a full-preimage assumption at 2. It was pre-registered before the scan beyond $p\le101$. By $2\times10^7$ it predicted **1,187.9** collisions; the scan found **1,477** ($z\approx+8.4$). **M1 was refuted.**
-- **M2** replaced the factor at 3 with the icosahedral model and used an **empirical** factor at 2 from local divisibility frequencies, *not collision counts*. This revision was post hoc relative to M1, but frozen **before** testing the interval $(2\times10^7,6\times10^7]$.
+- **M1** used a generic local factor at 3 and a full-preimage assumption at 2. The authors' record reports freezing it before the scan beyond $p\le101$ (see chronology caveat above). By $2\times10^7$ it predicted **1,187.9** collisions; the scan found **1,477** ($z\approx+8.4$). **M1 was rejected under its declared finite-range criterion.**
+- **M2** replaced the factor at 3 with the icosahedral model and used an **empirical** factor at 2 from local divisibility frequencies, *not collision counts*. This revision was post hoc relative to M1, but reported frozen **before** testing the interval $(2\times10^7,6\times10^7]$.
 
 | Held-out interval | Observed | M2 predicted | Standardized residual |
 |---|---:|---:|---:|
@@ -164,7 +184,7 @@ The historical scripts assume intermediate files in their working directory; see
 
 ## Open edges
 
-1. **Prove or disprove R2.** Identify the relevant 2-adic Galois image rather than extrapolating from finite congruence checks.
+1. **Determine the 2-adic image.** R14c proves the R2 congruence via modular forms; the complete image and its local factor remain open.
 2. **Explain the small-prime bias.** Test a finite-$p$ lattice correction against the existing dataset without recycling the same interval as independent validation.
 3. **Reconstruct the literature comparison.** Repeat Van Hirtum's fitting procedure on matched ranges and normalizations.
 4. **The 3-adic image.** The mod-3 projective image $A_5$ passed an independent cycle-type check; it remains open whether the 3-adic image is the full preimage of the model group.

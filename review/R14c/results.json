@@ -1,0 +1,92 @@
+{
+  "sturm": {
+    "bound": 2208,
+    "nonzero_checked": 0,
+    "split_odd_indices": 528,
+    "parity_sha256": "0a8a67094d63bba018fc9a91d83f3cc2fd640ba7bc45f1648c3d234e2d82a2fb",
+    "negative_control_first": 1,
+    "negative_control_prime": 3
+  },
+  "conservative_level": 389344,
+  "sharp_level": 8464,
+  "sharp_sturm": 2208,
+  "prefix": {
+    "primes": 327,
+    "collisions": 20,
+    "first": [
+      13,
+      19,
+      29,
+      43,
+      109,
+      223,
+      229,
+      271,
+      463,
+      673,
+      677,
+      883
+    ],
+    "zero_trace": [
+      43,
+      109,
+      1033
+    ],
+    "bound": 2208
+  },
+  "models": [
+    {
+      "l": 2,
+      "group": 6,
+      "rational": 6,
+      "scalar": 1,
+      "trace_histogram": {
+        "(0, 0)": 4,
+        "(1, 0)": 2
+      },
+      "brute_mod_l2_total": 768,
+      "brute_mod_l2_hits": 448,
+      "factors": [
+        "2",
+        "7/3",
+        "29/12",
+        "39/16",
+        "469/192",
+        "1877/768",
+        "2503/1024",
+        "30037/12288"
+      ],
+      "limit": "22/9"
+    },
+    {
+      "l": 3,
+      "group": 240,
+      "rational": 102,
+      "scalar": 2,
+      "trace_histogram": {
+        "(0, 0)": 60,
+        "(0, 1)": 24,
+        "(0, 2)": 24,
+        "(1, 0)": 21,
+        "(1, 1)": 21,
+        "(1, 2)": 24,
+        "(2, 0)": 21,
+        "(2, 1)": 24,
+        "(2, 2)": 21
+      },
+      "brute_mod_l2_total": 524880,
+      "brute_mod_l2_hits": 77274,
+      "factors": [
+        "51/40",
+        "53/40",
+        "479/360",
+        "4313/3240",
+        "38819/29160",
+        "349373/262440",
+        "3144359/2361960",
+        "28299233/21257640"
+      ],
+      "limit": "213/160"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+level = 8464 Sturm bound = 2208 coefficients checked = 2209
+nonzero coefficients mod 2 = 0
+mod-2 vector SHA256 = 0a8a67094d63bba018fc9a91d83f3cc2fd640ba7bc45f1648c3d234e2d82a2fb
+negative control at p=3: detected
