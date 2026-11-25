@@ -1,0 +1,31 @@
+{
+  "point_counts": {
+    "modular_curve": [
+      8,
+      204
+    ],
+    "isogenous_jacobian": [
+      8,
+      204
+    ]
+  },
+  "residual": {
+    "determinant_one_matrices": 720,
+    "eligible_second_generators": 64,
+    "distinct_binary_groups_with_fixed_involution": 4,
+    "adjoint_and_full_ranks": [
+      [
+        6,
+        7
+      ]
+    ],
+    "group_order_rational_trace_and_scalar_rational_trace": [
+      [
+        240,
+        102,
+        2
+      ]
+    ],
+    "local_factor_3": "213/160"
+  }
+}

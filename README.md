@@ -21,12 +21,16 @@ Two lines of inquiry remain distinct: arithmetic congruences proved from stated 
 > **Evidence rule:** exact identities, conditional deductions, finite checks, and heuristic models carry distinct proof obligations.
 
 
+## R14d: the full 3-adic image (25 November 2026)
+
+The [R14d addendum](docs/R14d_addendum.md) identifies the image as the full preimage of the actual residual image inside the group with rational 3-adic determinant. Frobenius at 13 and an [exact finite certificate](review/R14d/verify.py) fill the first congruence layer; cubing propagates it through all higher layers. The local factor is $F_3=213/160$. The original forecast, 2-adic image question, and conjectural global asymptotic are unchanged.
+
 ## R14c — adversarial review and arithmetic addendum (24 November 2026)
 
 The [dated addendum](docs/R14c_addendum.md) supersedes the *current status* of R2 and the local-factor extrapolation at 3, without rewriting the November 23 paper or the frozen M1/M2 records.
 
 - **R2:** a weight-two modular-form congruence and an exact Sturm certificate establish the mod-4 law, subject to the standard modular-form inputs and external review. The conservative level bound is 389344, with all coefficients through 101568 checked. This does not identify the full 2-adic image.
-- **At 3:** the exact limit of the stated binary-icosahedral full-preimage **model** is $F_3=213/160=1.33125$, not $4/3$. Identification of the actual full 3-adic image remains a separate proof obligation.
+- **At 3:** the exact limit of the stated binary-icosahedral full-preimage **model** is $F_3=213/160=1.33125$, not $4/3$. Identification of the actual full 3-adic image was a separate proof obligation, addressed in R14d above.
 - **Forecasts:** M1 failure and M2's 914.9 prediction remain unchanged. Substituting the exact model factor retrospectively gives 914.4; this is not a new held-out test.
 - **Chronology:** both preregistration files and the dataset first appear in public commit [c25c030](https://github.com/Dojo-1/J0-23-collision-primes/commit/c25c030f8528ee15b2f110ba4029ca8c1cad9b9f). Their internal timestamps and reported hashes do not independently establish the prior freeze.
 
@@ -90,7 +94,7 @@ where $\theta_{2,1,3}(z)=\sum_{x,y\in\mathbb Z}q^{2x^2+xy+3y^2}$ and $q=e^{2\pi 
 | **L1: parity** | $v_p$ is even for every $p\ne2,23$. | Two proofs recorded; full-range scan agrees |
 | **R1: principal-form mod 4** | If $p=x^2+xy+6y^2$, then $T_p\equiv1+p\pmod{4\mathcal O}$, $\mathcal O=\mathbb Z[\phi]$. | Proof recorded using Eichler–Shimura; 593,491 cases checked |
 | **R2: nonprincipal-form mod 4** | If $p=2x^2+xy+3y^2$, then $v_p\equiv p-1\pmod4$. | R14b conjecture; see the [R14c Sturm proof](docs/R14c_addendum.md); historical scan: 1,187,172 cases, 0 exceptions |
-| **Mod-3 trace frequencies** | The recorded frequencies agree with an explicitly constructed binary-icosahedral group model $\langle i\rangle\cdot2.A_5\subset GL_2(\mathbb F_9)$ of order 240. | Measured frequency match. The projective image $A_5$ is **source-reported** (Billerey–Dieulefait, arXiv:1210.5428 §5.3, attributing to Ribet and Kiming–Verrill), consistent with an independent check (Frobenius cycle types of $X^5+3X^3+6X^2+9$ agree with mod-3 traces at all 17,981 primes $\le2\cdot10^5$, 0 mismatches); the full 3-adic image is a model hypothesis |
+| **Mod-3 trace frequencies** | The recorded frequencies agree with an explicitly constructed binary-icosahedral group model $\langle i\rangle\cdot2.A_5\subset GL_2(\mathbb F_9)$ of order 240. | Measured frequency match. The projective image $A_5$ is **source-reported** (Billerey–Dieulefait, arXiv:1210.5428 §5.3, attributing to Ribet and Kiming–Verrill), consistent with an independent check (Frobenius cycle types of $X^5+3X^3+6X^2+9$ agree with mod-3 traces at all 17,981 primes $\le2\cdot10^5$, 0 mismatches); R14d identifies the full 3-adic image separately |
 
 A particularly sharp consequence of Theorem A is
 
@@ -187,7 +191,7 @@ The historical scripts assume intermediate files in their working directory; see
 1. **Determine the 2-adic image.** R14c proves the R2 congruence via modular forms; the complete image and its local factor remain open.
 2. **Explain the small-prime bias.** Test a finite-$p$ lattice correction against the existing dataset without recycling the same interval as independent validation.
 3. **Reconstruct the literature comparison.** Repeat Van Hirtum's fitting procedure on matched ranges and normalizations.
-4. **The 3-adic image.** The mod-3 projective image $A_5$ passed an independent cycle-type check; it remains open whether the 3-adic image is the full preimage of the model group.
+4. **Joint local factors.** R14d identifies the 3-adic image; entanglement across exceptional primes is not resolved by that local result.
 5. **Formalize the finite algebraic bridges.** Lean candidates include the mod-11 ideal intersection and the mod-2 trace lemma; **no Lean proof is claimed**.
 
 **Scope:** this repository does *not* prove infinitely many collision primes, establish a new asymptotic theorem, claim novelty, or present a verified Lean formalization.
